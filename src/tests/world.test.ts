@@ -1,3 +1,4 @@
+import { Position } from '../core/position';
 import { World } from '../core/world';
 
 describe('The World', () => {
@@ -40,8 +41,9 @@ describe('The World', () => {
 		const dimX = 5;
 		const dimY = 5;
 		const world = World.create(dimX, dimY)
-
-		expect(world.isPositionWithinLimits(xPos, yPos)).toBe(false);
+		const position = Position.create(xPos, yPos, 'N');
+		
+		expect(world.isAllowed(position)).toBe(false);
 	});
 
 	it('returns not valid position if it is out of the Y dimension limit.', () => {
@@ -50,7 +52,8 @@ describe('The World', () => {
 		const dimX = 5;
 		const dimY = 5;
 		const world = World.create(dimX, dimY)
+		const position = Position.create(xPos, yPos, 'N');
 
-		expect(world.isPositionWithinLimits(xPos, yPos)).toBe(false);
+		expect(world.isAllowed(position)).toBe(false);
 	});
 });

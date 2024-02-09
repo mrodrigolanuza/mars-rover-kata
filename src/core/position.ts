@@ -17,6 +17,14 @@ export class Position {
         return new Position(xPos, yPos, orientation);
     }
 
+    X() :number {
+        return this.xPos;
+    }
+
+    Y() :number {
+        return this.yPos;
+    }
+
     private static isInvalidOrientation(orientation :string) :boolean{
         return  orientation.toUpperCase() != 'N' &&
                 orientation.toUpperCase() != 'S' &&

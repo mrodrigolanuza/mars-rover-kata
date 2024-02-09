@@ -1,4 +1,6 @@
-const MIN_SIZE = 1;
+import { Position } from "./position";
+
+const MIN_SIZE :number = 1;
 export class World {
     
     
@@ -16,10 +18,8 @@ export class World {
         return new World(dimX, dimY);
     }
 
-    isPositionWithinLimits(xPos :number, yPos :number) :boolean {
-        return (xPos >= MIN_SIZE) 
-            && (yPos >= MIN_SIZE) 
-            && (xPos <= this.dimX) 
-            && (yPos <= this.dimY);
+    isAllowed(position :Position) :boolean {
+        return (position.X() >= MIN_SIZE) && (position.X() <= this.dimX)
+            && (position.Y() >= MIN_SIZE) && (position.Y() <= this.dimY);
     }
 }

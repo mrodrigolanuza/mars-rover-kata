@@ -14,6 +14,7 @@
     - The Rover can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 1x1 world.
 */
 
+import { Position } from '../core/position';
 import { Rover } from '../core/rover'
 import { World } from '../core/world';
 
@@ -27,9 +28,7 @@ describe('The Rover vehicle', () => {
         const yDim = 5;
 		
         const rover = Rover.create(World.create(xDim, yDim), 
-                                   xPos, 
-                                   yPos, 
-                                   orientation);
+                                   Position.create(xPos, yPos, orientation));
 		
 		expect(rover).toBeInstanceOf(Rover);
 	});
@@ -37,13 +36,14 @@ describe('The Rover vehicle', () => {
     it('can not be instantiated if the position is not contained within the world dimensions.', () => {
         const xDim = 3;
         const yDim = 5;
-        const world = World.create(xDim, yDim)
+        const world = World.create(xDim, yDim);
+        const xPos = -100;
+        const yPos = 100;
+        const orientation = 'N';
+        const position = Position.create(xPos, yPos, orientation);
 		
         expect(() => {
-            const xPos = -100;
-            const yPos = 100;
-            const orientation = 'N';
-            const rover = Rover.create(world, xPos, yPos, orientation);
+            const rover = Rover.create(world, position);
         }).toThrow('Rover can not be placed in the given position');
 	});
 });
