@@ -3,14 +3,19 @@ import {Position} from '../core/position'
 
 describe('The Position in the World', () => {
 
-    it('must be instantiated.', () => {
+    it('must have a valid orientacion.', () => {
         const xPos = 3;
         const yPos = 5;
-        const orientation = 'N';
         
-        const position = Position.create(xPos, yPos, orientation);
-		
-		expect(position).toBeInstanceOf(Position);
+        const positionNorth = Position.create(xPos, yPos, 'N');
+		const positionSouth = Position.create(xPos, yPos, 'S');
+        const positionEast = Position.create(xPos, yPos, 'E');
+        const positionWest = Position.create(xPos, yPos, 'W');
+
+		expect(positionNorth).toBeInstanceOf(Position);
+        expect(positionSouth).toBeInstanceOf(Position);
+        expect(positionEast).toBeInstanceOf(Position);
+        expect(positionWest).toBeInstanceOf(Position);
 	});
 
     it('must have a not-empty orientacion.', () => {
@@ -23,7 +28,7 @@ describe('The Position in the World', () => {
         }).toThrow(Error('Orientation not valid.'));
 	});
 
-    it('must have a valid orientacion.', () => {
+    it('must throw an error with when not valid orientacion.', () => {
         const xPos = 1;
         const yPos = 1;
         let orientation = 'irrelevant';

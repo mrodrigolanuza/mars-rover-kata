@@ -1,7 +1,8 @@
 export class Position {
-    constructor(private readonly xPos :number, private readonly yPos :number, private readonly orientation :string) {
-
-    }
+    
+    constructor(private readonly xPos :number, 
+                private readonly yPos :number, 
+                private readonly orientation :string) {  }
 
     static create (xPos :number, yPos :number, orientation :string){
         
