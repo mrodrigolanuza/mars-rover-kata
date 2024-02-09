@@ -13,4 +13,8 @@ export class World {
 
         return new World(dimX, dimY);
     }
+
+    isPositionWithinLimits(xPos :number, yPos :number) :boolean {
+        return xPos <= this.dimX && yPos <= this.dimY; 
+    }
 }

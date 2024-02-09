@@ -5,6 +5,10 @@ export class Rover {
 
     static create (world :World, xPos :number, yPos :number, orientation :string) :Rover{
 
+        if(!world.isPositionWithinLimits(xPos, yPos)){
+            throw new Error('Rover can not be placed in the given position');
+        }
+        
         return new Rover(world, xPos, yPos, orientation);
     }
 }

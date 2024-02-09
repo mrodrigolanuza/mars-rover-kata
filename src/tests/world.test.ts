@@ -33,4 +33,24 @@ describe('The World', () => {
 		}).toThrow(Error('Y dimension must be greather than zero.'));
 		
 	});
+
+	it('returns not valid position if it is out of the X dimension limit.', () => {
+		const xPos = 8;
+		const yPos = 2;
+		const dimX = 5;
+		const dimY = 5;
+		const world = World.create(dimX, dimY)
+
+		expect(world.isPositionWithinLimits(xPos, yPos)).toBe(false);
+	});
+
+	it('returns not valid position if it is out of the Y dimension limit.', () => {
+		const xPos = 1;
+		const yPos = 12;
+		const dimX = 5;
+		const dimY = 5;
+		const world = World.create(dimX, dimY)
+
+		expect(world.isPositionWithinLimits(xPos, yPos)).toBe(false);
+	});
 });
