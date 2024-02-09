@@ -4,7 +4,10 @@ describe('The World', () => {
 
 	it('can be instantiated.', () => {
 		
-		const world = World.create(5, 4);
+		const dimX = 5;
+		const dimY = 4;
+		
+		const world = World.create(dimX, dimY);
 		
 		expect(world).toBeInstanceOf(World);
 		
