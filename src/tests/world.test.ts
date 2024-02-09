@@ -17,9 +17,9 @@ describe('The World', () => {
 		const dimX = -5;
 		const dimY = 4;
 		
-		const world = World.create(dimX, dimY);
-		
-		expect(world).toBeInstanceOf(World);
+		expect(() => {
+			const world = World.create(dimX, dimY);	
+		}).toThrow(Error('X dimension must be greather than zero.'));
 		
 	});
 });
