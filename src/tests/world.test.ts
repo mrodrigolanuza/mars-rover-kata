@@ -22,4 +22,15 @@ describe('The World', () => {
 		}).toThrow(Error('X dimension must be greather than zero.'));
 		
 	});
+
+	it('must be instantiated with Y dimension greather than zero.', () => {
+		
+		const dimX = 5;
+		const dimY = 0;
+		
+		expect(() => {
+			const world = World.create(dimX, dimY);	
+		}).toThrow(Error('Y dimension must be greather than zero.'));
+		
+	});
 });
