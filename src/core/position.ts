@@ -9,14 +9,17 @@ export class Position {
             throw new Error('Orientation not valid.');
         }
 
-        if(orientation != 'N' &&
-           orientation != 'S' &&
-           orientation != 'E' &&
-           orientation != 'W'){
-            throw new Error('Orientation with unknown value.');
-           }
-
-
+        if(this.isInvalidOrientation(orientation)){
+            throw new Error('Orientation with unknown value.')
+        }
+        
         return new Position(xPos, yPos, orientation);
+    }
+
+    private static isInvalidOrientation(orientation :string) :boolean{
+        return  orientation.toUpperCase() != 'N' &&
+                orientation.toUpperCase() != 'S' &&
+                orientation.toUpperCase() != 'E' &&
+                orientation.toUpperCase() != 'W';
     }
 }
