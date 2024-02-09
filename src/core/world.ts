@@ -3,8 +3,9 @@ export class World {
                         private readonly dimY :number) { }
 
     static create(dimX :number, dimY :number) :World {
+        const MINIMUN_SIZE = 1;
         
-        if(dimX < 1)
+        if(dimX < MINIMUN_SIZE)
 			throw new Error("X dimension must be greather than zero.")
 
         return new World(dimX, dimY);
