@@ -22,4 +22,14 @@ describe('The Position in the World', () => {
             const position = Position.create(xPos, yPos, orientation);
         }).toThrow(Error('Orientation not valid.'));
 	});
+
+    it('must have a valid orientacion.', () => {
+        const xPos = 1;
+        const yPos = 1;
+        let orientation = 'irrelevant';
+        
+        expect(()=>{
+            const position = Position.create(xPos, yPos, orientation);
+        }).toThrow(Error('Orientation with unknown value.'));
+	});
 });
