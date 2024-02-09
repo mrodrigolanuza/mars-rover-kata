@@ -46,5 +46,19 @@ describe('The Rover vehicle', () => {
             const rover = Rover.create(world, position);
         }).toThrow('Rover can not be placed in the given position');
 	});
+
+    it('can show its actual position.', () => {
+        const xDim = 5;
+        const yDim = 5;
+        const world = World.create(xDim, yDim);
+        const xPos = 2;
+        const yPos = 3;
+        const orientation = 'W';
+        const position = Position.create(xPos, yPos, orientation);
+		
+        const rover = Rover.create(world, position);
+
+        expect(rover.actualPosition).toBe('2,3,W');
+	});
 });
 

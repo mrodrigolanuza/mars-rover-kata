@@ -12,4 +12,8 @@ export class Rover {
         
         return new Rover(world, position);
     }
+
+    actualPosition(): string {
+        return '';
+    }
 }
