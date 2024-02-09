@@ -6,6 +6,5 @@ export class Rover {
     static create (world :World) :Rover{
 
         return new Rover(world);
-
     }
 }
