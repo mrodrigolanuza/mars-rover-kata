@@ -25,6 +25,10 @@ export class Position {
         return this.yPos;
     }
 
+    toString(): string{
+         return `${this.xPos},${this.yPos},${this.orientation}`;
+    }
+
     private static isInvalidOrientation(orientation :string) :boolean{
         return  orientation.toUpperCase() != 'N' &&
                 orientation.toUpperCase() != 'S' &&

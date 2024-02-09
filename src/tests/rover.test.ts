@@ -58,7 +58,7 @@ describe('The Rover vehicle', () => {
 		
         const rover = Rover.create(world, position);
 
-        expect(rover.actualPosition).toBe('2,3,W');
+        expect(rover.actualPosition()).toBe('2,3,W');
 	});
 });
 
