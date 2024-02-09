@@ -10,6 +10,16 @@ describe('The World', () => {
 		const world = World.create(dimX, dimY);
 		
 		expect(world).toBeInstanceOf(World);
+	});
+
+	it('can not be instantiated with negative X dimension.', () => {
+		
+		const dimX = -5;
+		const dimY = 4;
+		
+		const world = World.create(dimX, dimY);
+		
+		expect(world).toBeInstanceOf(World);
 		
 	});
 });
