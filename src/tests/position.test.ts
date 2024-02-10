@@ -1,4 +1,3 @@
-import { stringify } from 'querystring';
 import {Position} from '../core/position'
 
 describe('The Position in the World', () => {
