@@ -8,6 +8,10 @@ export class Rover {
 
     static create (world :World, position :Position) :Rover{
 
+        if(!world){
+            throw new Error('Rover needs a world where to be placed.');
+        }
+        
         if(!position){
             throw new Error('Rover needs a position to be placed in the world.');
         }
