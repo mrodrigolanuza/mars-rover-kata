@@ -11,9 +11,7 @@
 */
 
 import { Movement } from '../core/movement';
-import { Position } from '../core/position';
 import { Rover } from '../core/rover';
-import { World } from '../core/world';
 import { RoverBuilder } from '../core/roverBuilder';
 
 describe('The Rover vehicle', () => {
