@@ -8,6 +8,7 @@
 
 Ejercicio que pretende trabajar el sentido para tender a construir software sostenible, aplicando condiciones como:
 - Uso de tipos especídificos (Value Object).
+- Uso de builders.
 - Limitar uso de condicionales.
 - Constructores con nombre en las clases.
 
