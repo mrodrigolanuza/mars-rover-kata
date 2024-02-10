@@ -14,7 +14,7 @@ import { Movement } from '../core/movement';
 import { Position } from '../core/position';
 import { Rover } from '../core/rover';
 import { World } from '../core/world';
-import { RoverBuilder } from '../core/roverBilder';
+import { RoverBuilder } from '../core/roverBuilder';
 
 describe('The Rover vehicle', () => {
     let roverBuilder;
@@ -23,6 +23,12 @@ describe('The Rover vehicle', () => {
         roverBuilder = new RoverBuilder();
     });
 
+    it('when creation, needs a initial position in the world.', () => {
+        expect(() => {
+            roverBuilder.withinWorldWithDimensionsXY(3, 5);
+            const rover = roverBuilder.build();
+        }).toThrow('Rover needs a position to be placed in the world.');
+	});
 
     it('must be instantiated in a well-formed world and in a particular position in it.', () => {
 		roverBuilder.withinWorldWithDimensionsXY(3, 5);
