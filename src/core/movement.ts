@@ -6,7 +6,7 @@ export class Movement {
     static create(movement: string): Movement{
         
         if(this.isEmpty(movement)){
-            throw Error('Movement cannot be empty.')
+            throw Error('A movement must contain one or more commands.')
         }
 
         let commands = Movement.extractCommandsFrom(movement);
