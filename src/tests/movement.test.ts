@@ -1,4 +1,3 @@
-import { moveMessagePortToContext } from 'worker_threads';
 import { Movement } from '../core/movement'
 
 describe('The Movement', () => {
