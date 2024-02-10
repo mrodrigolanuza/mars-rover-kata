@@ -21,9 +21,10 @@ export class Rover {
 
     execute(movement: Movement) {
         
-        movement.commands().forEach(cmd => {
-            this.position = this.position.apply(cmd);
-            this.position = this.world.adjustPositionWhenExceededLimits(this.position);
+        movement.commands()
+                .forEach(command => {
+            this.position = this.position.apply(command);
+            this.position = this.world.adjustPositionWhenLimitsExceeded(this.position);
         });
     }
 }

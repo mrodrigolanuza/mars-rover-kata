@@ -23,7 +23,7 @@ export class World {
             && (position.Y() >= MIN_SIZE) && (position.Y() <= this.dimY);
     }
 
-    adjustPositionWhenExceededLimits(position: Position): Position {
+    adjustPositionWhenLimitsExceeded(position: Position): Position {
         
         let xPos = position.X(); 
         if(position.X() <= 0){
