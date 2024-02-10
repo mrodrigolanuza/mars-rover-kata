@@ -1,9 +1,10 @@
+import { Movement } from "./movement";
 import { Position } from "./position";
 import { World } from "./world";
 
 export class Rover {
     private constructor(private readonly world: World, 
-                        private readonly position :Position) {}
+                        private position :Position) {}
 
     static create (world :World, position :Position) :Rover{
 
@@ -16,5 +17,12 @@ export class Rover {
 
     actualPosition(): string {
         return this.position.toString();
+    }
+
+    execute(movement: Movement) {
+        
+        movement.commands().forEach(cmd => {
+            this.position = this.position.apply(cmd);
+        });
     }
 }
