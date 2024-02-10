@@ -22,4 +22,25 @@ export class World {
         return (position.X() >= MIN_SIZE) && (position.X() <= this.dimX)
             && (position.Y() >= MIN_SIZE) && (position.Y() <= this.dimY);
     }
+
+    adjustPositionWhenExceededLimits(position: Position): Position {
+        
+        let xPos = position.X(); 
+        if(position.X() <= 0){
+            xPos = this.dimX + position.X(); 
+        }
+        else if(position.X() > this.dimX ){
+            xPos = position.X() - this.dimX;
+        }
+        
+        let yPos = position.Y();
+        if(position.Y() <= 0){
+            yPos = this.dimY + position.Y();
+        }
+        else if(position.Y() > this.dimY){
+            yPos = position.Y() - this.dimY;
+        }
+
+        return Position.create(xPos, yPos, position.direction());
+    }
 }

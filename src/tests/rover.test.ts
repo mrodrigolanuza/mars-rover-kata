@@ -7,9 +7,6 @@
     - The Rover can execute a movement with only a Right command (R) within the world dimensions.
     - The Rover can execute a movement with a sequece of commands (FRFFR) within the world dimensions.
     - The Rover can execute a movement with only a Forward command (F) traspassing the limits of the world.
-    - The Rover can execute a movement with only a Rear command (R) traspassing the limits of the world.
-    - The Rover can execute a movement with only a Left command (L) traspassing the limits of the world.
-    - The Rover can execute a movement with only a Right command (R) traspassing the limits of the world.
     - The Rover can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 1x1 world.
 */
 
@@ -108,7 +105,7 @@ describe('The Rover vehicle', () => {
         expect(rover.actualPosition()).toBe('3,3,E');
 	 });
 
-     it('can execute a movement with a sequece of commands (FRFFR) within the world dimensions..', () => {
+     it('can execute a movement with a sequece of commands (FRFFR) within the world dimensions.', () => {
         const xDim = 5;
         const yDim = 5;
         const world = World.create(xDim, yDim);
@@ -122,6 +119,54 @@ describe('The Rover vehicle', () => {
         rover.execute(movement);
 
         expect(rover.actualPosition()).toBe('5,4,S');
+	 });
+     
+     it('can execute a movement with only a Forward command (F) traspassing the limits of the world.', () => {
+        const xDim = 5;
+        const yDim = 5;
+        const world = World.create(xDim, yDim);
+        const xPos = 5;
+        const yPos = 5;
+        const orientation = 'N';
+        const position = Position.create(xPos, yPos, orientation);
+        const rover = Rover.create(world, position);
+        const movement = Movement.create('F');
+
+        rover.execute(movement);
+
+        expect(rover.actualPosition()).toBe('5,1,N');
+	 });
+     
+     it('can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 5x5 world.', () => {
+        const xDim = 5;
+        const yDim = 5;
+        const world = World.create(xDim, yDim);
+        const xPos = 5;
+        const yPos = 1;
+        const orientation = 'E';
+        const position = Position.create(xPos, yPos, orientation);
+        const rover = Rover.create(world, position);
+        const movement = Movement.create('FRFFR');
+
+        rover.execute(movement);
+
+        expect(rover.actualPosition()).toBe('1,4,W');
+	 });
+
+     it('can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 1x1 world.', () => {
+        const xDim = 1;
+        const yDim = 1;
+        const world = World.create(xDim, yDim);
+        const xPos = 1;
+        const yPos = 1;
+        const orientation = 'E';
+        const position = Position.create(xPos, yPos, orientation);
+        const rover = Rover.create(world, position);
+        const movement = Movement.create('FRFFR');
+
+        rover.execute(movement);
+
+        expect(rover.actualPosition()).toBe('1,1,W');
 	 });
 });
 

@@ -23,6 +23,7 @@ export class Rover {
         
         movement.commands().forEach(cmd => {
             this.position = this.position.apply(cmd);
+            this.position = this.world.adjustPositionWhenExceededLimits(this.position);
         });
     }
 }

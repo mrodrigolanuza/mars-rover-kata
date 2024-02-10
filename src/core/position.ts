@@ -27,6 +27,10 @@ export class Position {
         return this.yPos;
     }
 
+    direction(): string {
+        return this.orientation;
+    }
+
     toString(): string{
          return `${this.xPos},${this.yPos},${this.orientation}`;
     }
