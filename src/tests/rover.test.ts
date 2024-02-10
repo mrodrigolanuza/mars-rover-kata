@@ -17,9 +17,14 @@ import { World } from '../core/world';
 import { RoverBuilder } from '../core/roverBilder';
 
 describe('The Rover vehicle', () => {
+    let roverBuilder;
+
+	beforeEach(()=>{
+        roverBuilder = new RoverBuilder();
+    });
+
 
     it('must be instantiated in a well-formed world and in a particular position in it.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(3, 5);
         roverBuilder.locatedInPosition(3, 5, 'N');
         const rover = roverBuilder.build();
@@ -28,8 +33,6 @@ describe('The Rover vehicle', () => {
 	});
 
     it('can not be instantiated if the position is not contained within the world dimensions.', () => {
-        const roverBuilder = new RoverBuilder();
-		
         expect(() => {
             roverBuilder.withinWorldWithDimensionsXY(3, 5);
             roverBuilder.locatedInPosition(-100, 100, 'N');
@@ -38,7 +41,6 @@ describe('The Rover vehicle', () => {
 	});
 
     it('can show its actual position.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(3, 3, 'N');
         const rover = roverBuilder.build();
@@ -47,7 +49,6 @@ describe('The Rover vehicle', () => {
 	});
 
      it('can execute a movement with only a Forward command (F) within the world dimensions.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(3, 3, 'N');
         const rover = roverBuilder.build();
@@ -59,7 +60,6 @@ describe('The Rover vehicle', () => {
 	 });
 
      it('can execute a movement with only a Rear command (R) within the world dimensions.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(3, 3, 'N');
         const rover = roverBuilder.build();
@@ -71,7 +71,6 @@ describe('The Rover vehicle', () => {
 	 });
 
      it('can execute a movement with only a Rear command (R) within the world dimensions.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(3, 3, 'N');
         const rover = roverBuilder.build();
@@ -83,7 +82,6 @@ describe('The Rover vehicle', () => {
 	 });
 
      it('can execute a movement with a sequece of commands (FRFFR) within the world dimensions.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(3, 3, 'N');
         const rover = roverBuilder.build();
@@ -95,7 +93,6 @@ describe('The Rover vehicle', () => {
 	 });
      
      it('can execute a movement with only a Forward command (F) traspassing the limits of the world.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(5, 5, 'N');
         const rover = roverBuilder.build();
@@ -107,7 +104,6 @@ describe('The Rover vehicle', () => {
 	 });
      
      it('can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 5x5 world.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(5, 5);
         roverBuilder.locatedInPosition(5, 1, 'E');
         const rover = roverBuilder.build();
@@ -119,7 +115,6 @@ describe('The Rover vehicle', () => {
 	 });
 
      it('can execute a movement with a sequece of commands (FRFFR) traspassing the limits of 1x1 world.', () => {
-        const roverBuilder = new RoverBuilder();
 		roverBuilder.withinWorldWithDimensionsXY(1, 1);
         roverBuilder.locatedInPosition(1, 1, 'E');
         const rover = roverBuilder.build();
