@@ -5,7 +5,7 @@ describe('The Movement', () => {
     it('must throw an error when is empty.', () => {
         
         expect(()=>{
-            const movement = Movement.create(' ');
+            Movement.create(' ');
         }).toThrow(Error('A movement must contain one or more commands.'));
         
 	});
