@@ -29,6 +29,13 @@ describe('The Rover vehicle', () => {
             const rover = roverBuilder.build();
         }).toThrow('Rover needs a position to be placed in the world.');
 	});
+    
+    it('when creation, needs a world where to be placed.', () => {
+        expect(() => {
+            roverBuilder.locatedInPosition(3, 5, 'N');
+            const rover = roverBuilder.build();
+        }).toThrow('Rover needs a world where to be placed.');
+	});
 
     it('must be instantiated in a well-formed world and in a particular position in it.', () => {
 		roverBuilder.withinWorldWithDimensionsXY(3, 5);
