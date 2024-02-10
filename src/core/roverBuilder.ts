@@ -6,7 +6,7 @@ export class RoverBuilder {
     private world: World;
     private position: Position;
 
-
+    
     withinWorldWithDimensionsXY(dimX: number, dimY: number): this {
         this.world = World.create(dimX, dimY);
         return this;
