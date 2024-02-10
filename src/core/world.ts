@@ -9,7 +9,7 @@ export class World {
 
     static create(dimX :number, dimY :number) :World {
         
-        if(dimX < 1)
+        if(dimX < MIN_SIZE)
 			throw new Error("X dimension must be greather than zero.")
 
         if(dimY < MIN_SIZE)
