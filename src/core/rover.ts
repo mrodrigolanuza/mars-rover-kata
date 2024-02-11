@@ -3,9 +3,7 @@ import { Position } from "./position";
 import { World } from "./world";
 
 export class Rover {
-    private constructor(private readonly world: World, 
-                        private position :Position) {}
-
+    
     static create (world :World, position :Position) :Rover{
 
         if(!world){
@@ -22,6 +20,9 @@ export class Rover {
         
         return new Rover(world, position);
     }
+
+    private constructor(private readonly world: World, 
+        private position :Position) {}
 
     actualPosition(): string {
         return this.position.toString();

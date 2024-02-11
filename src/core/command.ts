@@ -1,6 +1,5 @@
 export class Command {
-    private constructor(private readonly command :string) { }
-
+    
     static create(command :string){
 
         if(this.notRecognizedCommand(command)){
@@ -9,6 +8,8 @@ export class Command {
 
         return new Command(command);
     }
+
+    private constructor(private readonly command :string) { }
 
     type(): string {
         return this.command;

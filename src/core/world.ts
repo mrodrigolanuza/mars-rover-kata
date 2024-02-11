@@ -3,10 +3,6 @@ import { Position } from "./position";
 const MIN_SIZE :number = 1;
 export class World {
     
-    
-    private constructor(private readonly dimX :number, 
-                        private readonly dimY :number) { }
-
     static create(dimX :number, dimY :number) :World {
         
         if(dimX < MIN_SIZE)
@@ -17,6 +13,9 @@ export class World {
 
         return new World(dimX, dimY);
     }
+
+    private constructor(private readonly dimX :number, 
+        private readonly dimY :number) { }
 
     isAllowed(position :Position) :boolean {
         return (position.X() >= MIN_SIZE) && (position.X() <= this.dimX)

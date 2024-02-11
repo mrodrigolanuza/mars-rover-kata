@@ -1,8 +1,7 @@
 import { Command } from "./command";
 
 export class Movement {
-    private constructor(private readonly cmds: Command[]) { }
-
+    
     static create(movement: string): Movement{
         
         if(this.isEmpty(movement)){
@@ -12,6 +11,8 @@ export class Movement {
         let commands = Movement.extractCommandsFrom(movement);
         return new Movement((commands));
     }
+
+    private constructor(private readonly cmds: Command[]) { }
 
     commands(): Command[]{
         return this.cmds;

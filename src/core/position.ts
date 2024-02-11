@@ -2,10 +2,6 @@ import { Command } from "./command";
 
 export class Position {
     
-    private constructor(private readonly xPos :number, 
-                private readonly yPos :number, 
-                private readonly orientation :string) {  }
-
     static create (xPos :number, yPos :number, orientation :string){
         
         if(!orientation){
@@ -18,6 +14,10 @@ export class Position {
         
         return new Position(xPos, yPos, orientation);
     }
+
+    private constructor(private readonly xPos :number, 
+        private readonly yPos :number, 
+        private readonly orientation :string) {  }
 
     X() :number {
         return this.xPos;
